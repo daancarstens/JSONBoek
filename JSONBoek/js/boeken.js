@@ -1,10 +1,11 @@
 const uitvoer = document.getElementById('boeken');
 const xhr = new XMLHttpRequest();
+const taalKeuze = document.querySelectorAll('.besturing__cb-taal')
 
 xhr.onreadystatechange = () => {
   if (xhr.readyState == 4 && xhr.status == 200) {
     let resultaat = JSON.parse(xhr.responseText);
-    boeken.data = resultaat;
+    boeken.filteren( resultaat);
     boeken.uitvoeren();
   }
 }
@@ -13,7 +14,25 @@ xhr.open('GET', 'boeken.json', true);
 xhr.send();
 
 const boeken = {
+
+    taalFilter: ['Nederlands', 'Duits', 'Engels'],
+
+    filteren( gegevens ) {
+      this.data = gegevens.filter( (bk) => {
+        let bool = false;
+          this.taalFilter.forEach( (taal) => {
+            if( bk.taal == taal ) { bool = true }
+          } )
+        return bool
+      } )
+    },
+    sorteren() {
+      this.data.sort( (a,b) => ( a.titel.toUpperCase() > b.titel.toUpperCase() ) ? 1 : -1 );
+    },
+
     uitvoeren() {
+      this.sorteren();
+
       let html = "";
       this.data.forEach(boek => {
           let completeTitel = "";
@@ -75,3 +94,15 @@ const boeken = {
       return maand;
     }
 }
+
+const pasFilterAan = () => {
+  let gecheckteTaalKeuze = [];
+  taalKeuze.forEach( cb => {
+    if (cb.checked) gecheckteTaalKeuze.push( cb.value);
+  } );
+  boeken.taalFilter = gecheckteTaalKeuze;
+  boeken.filteren( JSON.parse(xhr.responseText) );
+  boeken.uitvoeren();
+}
+
+taalKeuze.forEach( cb => cb.addEventListener('change', pasFilterAan) );

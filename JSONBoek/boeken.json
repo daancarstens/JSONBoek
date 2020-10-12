@@ -15,6 +15,21 @@
         "prijs": 69.50
      },
      {
+         "titel": "Batman The Killing Joke",
+         "cover": "https://images-na.ssl-images-amazon.com/images/I/51gy4q1fylL._AC_.jpg",
+         "auteurs": [
+             {
+                 "voornaam": "Alan",
+                 "achternaam": "Moore"
+             }
+         ],
+         "uitgave": "2016-7",
+         "paginas": 50,
+         "taal": "Engels",
+         "ean": 9789469183989,
+         "prijs": 12.50
+      },
+     {
        "titel": "meeste mensen deugen",
        "voortitel": "De",
        "auteurs": [
