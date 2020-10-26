@@ -29,6 +29,21 @@
          "ean": 9789469183989,
          "prijs": 12.50
       },
+      {
+          "titel": "A natural history of dragons",
+          "cover": "https://images-na.ssl-images-amazon.com/images/I/81mOMXgOdkL.jpg",
+          "auteurs": [
+              {
+                  "voornaam": "Marie",
+                  "achternaam": "Brennan"
+              }
+          ],
+          "uitgave": "2014-10",
+          "paginas": 351,
+          "taal": "Engels",
+          "ean": 9789469420989,
+          "prijs": 21.50
+       },
      {
        "titel": "meeste mensen deugen",
        "voortitel": "De",
