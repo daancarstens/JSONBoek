@@ -2,7 +2,7 @@ const uitvoer = document.getElementById('boeken');
 const xhr = new XMLHttpRequest();
 const taalKeuze = document.querySelectorAll('.besturing__cb-taal');
 const selectSort = document.querySelector('.besturing__select');
-const aantalInWinkelwagen = document.querySelectorAll('.ww__aantal');
+const aantalInWinkelwagen = document.querySelector('.ww__aantal');
 
 xhr.onreadystatechange = () => {
   if (xhr.readyState == 4 && xhr.status == 200) {
@@ -87,7 +87,7 @@ const boeken = {
           let boekID = e.target.getAttribute('data-role');
           let gekliktBoek = this.data.filter( b => b.ean == boekID);
           ww.bestelling.push(gekliktBoek[0]);
-          aantalInWinkelwagen.innerHTML = ww.bestelling.length
+          aantalInWinkelwagen.innerHTML = ww.bestelling.length;
         })
       });
     },
