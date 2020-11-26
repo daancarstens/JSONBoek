@@ -1,28 +1,36 @@
 body{
   font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
 }
 
 .ww{
   position: absolute;
   right: 2em;
+  /* right: 4em;
+  top: 2em; */
+  cursor: pointer;
 }
 
-.ww__icon {
+.ww__icon{
   height: 3em;
 }
 
-.ww__aantal {
+.ww__aantal{
   font-size: .6em;
-  position: absolute;
-  top: -1em;
-  left: 3.9em;
   background-color: red;
+  top: -.3em;
+  left: 3.9em;
   color: white;
+  position: absolute;
   width: 1em;
   line-height: 1em;
   padding: .5em;
   text-align: center;
   border-radius: 2em;
+}
+
+#boeken{
+  clear: both;
 }
 
 .boek{
@@ -32,11 +40,10 @@ body{
 
 .boek__cover{
   float: left;
-  padding: 0 3rem 0 0;
   max-width: 150px;
 }
 
-.boek__info {
+.boek__info{
   margin-left: 180px;
 }
 
@@ -55,15 +62,15 @@ body{
   color: royalblue;
 }
 
-.boek__bestel-knop {
+.boek__bestel-knop{
   font-size: .5em;
   float: right;
   display: block;
   text-decoration: none;
-  color: red;
+  color: royalblue;
   background-color: white;
   padding: .4em 2.5em;
-  border: 2px solid red;
+  border: 2px solid Royalblue;
   margin-top: 1em;
   margin-right: 1em;
   border-radius: 1em;
@@ -72,26 +79,57 @@ body{
   letter-spacing: .2em;
 }
 
-.boek__bestel-knop:hover {
-  color: wheat;
-  background-color: red;
+.boek__bestel-knop:hover{
+  color: white;
+  background-color: royalblue;
 }
 
-.besturing__sorteren {
+.besturing__sorteren{
   float: right;
   text-align: right;
 }
 
+
 @media (min-width:1250px) {
-  #boeken {
+  #boeken{
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
   .boek:nth-child(4n+2), .boek:nth-child(4n+3) {
-    background-color: #ccc;
+    background-color: #82b5f0;
   }
 }
 
-#boeken{
-  clear: both;
+#haalFormulier{
+  display: none;
+}
+
+#haalFormulier:checked ~ .bestelformulier{
+  transform: translateX(0vw);
+
+}
+
+.bestelformulier{
+  background-color: white;
+  position: absolute;
+  width: 90vw;
+  min-height: 90vh;
+  top: 0em;
+  border-radius: 2em;
+  border: solid #82b5f0 2px;
+  padding: 2em;
+  box-sizing: border-box;
+  margin: 4vh 4vw;
+  transform: translateX(100vw);
+  transition: transform 1s ease-out;
+}
+
+.bestelformulier__cover{
+  width: 6em;
+}
+
+.bestelformulier__verlaag, .bestelformulier__verhoog{
+  padding: 1em;
+  color: black;
 }
